@@ -1,7 +1,5 @@
 # frozen-string-literal: true
 
-require 'pry-byebug'
-
 # Nodes represent each space on the board
 class Node
   attr_accessor :value, :parent, :children
@@ -27,7 +25,6 @@ class Knight
   def generate_moves(node)
     moves = [[-2, -1], [-2, 1], [-1, -2], [-1, 2], [1, -2], [1, 2], [2, -1], [2, 1]]
     valid_moves = []
-    binding.pry
     moves.each do |move|
       new_position = [node.value[0] + move[0], node.value[1] + move[1]]
       next unless new_position.all? { |coord| coord.between?(0, 7) }
